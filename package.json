@@ -1,5 +1,4 @@
 {
-  "homepage": "http://CFWood-github.github.io/LithoNFT",
   "name": "myapp",
   "version": "0.1.0",
   "private": true,
@@ -22,8 +21,6 @@
     "web3": "^1.8.0"
   },
   "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "serverNode": "node ./src/server.js",
     "server": "nodemon ./src/server.js",
