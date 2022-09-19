@@ -1,0 +1,83 @@
+.header {
+  margin-inline-start: 5%;
+  width: 90%;
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  background: linear-gradient(to bottom, #000000ff 0%, #00000055 100%);
+  z-index: 10;
+
+  .left {
+    margin-inline-start: 5%;
+    color: white;
+    font-size: 25px;
+
+    img {
+      height: 100px;
+    }
+  }
+
+  .right {
+    margin-inline-end: 5%;
+    color: #fff;
+    padding: 0 10px;
+    border-radius: 10px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    gap: 35px;
+
+    .line {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+
+      .emoji {
+        font-size: 20px;
+        margin-left: 5px;
+      }
+
+      .down {
+        margin-top: 2px;
+        content: url("https://api.iconify.design/charm/chevron-down.svg?color=white&width=18");
+      }
+    }
+
+    .title {
+      font-size: 15px;
+      color: white;
+      font-weight: bold;
+      letter-spacing: 2px;
+      cursor: pointer;
+    }
+
+    .zoom {
+      cursor: pointer;
+      margin-right: -10px;
+      content: url("https://api.iconify.design/ant-design/search-outlined.svg?color=white&width=35");
+    }
+
+    .connectwallet-button {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      width: 100px;
+      height: 35px;
+      border-radius: 5px;
+      background-image: linear-gradient(to right, #7a0fff 0%, #46bdf4 100%);
+      font-weight: 700;
+      text-align: center;
+
+      &:hover {
+        box-shadow: 0 0 15px #ffffff;
+        transform: none;
+        transition: 0.2s all;
+      }
+    }
+  }
+}
