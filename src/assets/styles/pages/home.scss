@@ -4,21 +4,41 @@
   width: 100%;
   text-align: center;
 
+  @media only screen and (max-width: 600px) {
+    width: 100vw;
+  }
+
   .gif {
     width: 500px;
+    border-radius: 10%;
+
+    @media screen and (max-width: 900px) {
+     width: 80%;
+     margin-bottom: 20px;
+    }
   }
 
   .title {
-    margin-top: 50px;
+    margin-top: 40px;
     width: 500px;
     margin-inline: auto;
     font-size: 30px;
     text-align: center;
+
+    @media only screen and (max-width: 600px) {
+      margin-top: 20px;
+      font-size: 30px;
+      width: 80%;
+    }
   }
 
   .date {
     text-align: center;
     font-size: 50px;
+
+    @media only screen and (max-width: 600px) {
+      font-size: 30px ;
+    }
   }
 
   .time {
@@ -31,6 +51,11 @@
     margin-inline: auto;
     text-align: center;
     font-size: 20px;
+
+    @media only screen and (max-width: 600px) {
+      margin-top: 10px;
+      width: 60%;
+    }
   }
 
   .join-button {
@@ -54,6 +79,7 @@
       transform: none;
       transition: 0.2s all;
     }
+
   }
 
   .download {

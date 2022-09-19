@@ -98,7 +98,7 @@ export default function Home({ account }) {
   return (
     <div className='home'>
 
-      <div className='title'><span style={{ color: 'red', fontStyle: 'Italic' }}>{25468 + members * 1799}</span> Whitelisted Wallets</div>
+      <div className='title'><span style={{ color: 'red', fontStyle: 'Italic' }}>{25468 + members * 1799}&nbsp;</span> Whitelisted Wallets</div>
       <img src={Gif} alt='' className='gif'></img>
       <div className='date'>{moment.unix(currentTime).format('YYYY-DD-MM')}</div>
       <div className='time'>{moment.unix(currentTime).format('hh:mm:ss')}</div>

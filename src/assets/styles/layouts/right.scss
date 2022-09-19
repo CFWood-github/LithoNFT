@@ -1,16 +1,24 @@
 .link-list {
-    position: fixed;
-    top: 0;
-    right: 50px;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 25px;
-    
-    img {
-        width: 36px;
-        // height: 36px;
-        cursor: pointer;
+  position: fixed;
+  top: 0;
+  right: 50px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 25px;
+
+  @media only screen and (max-width: 1024px) {
+    right: 30px;
+    height: 80vh;
+  }
+
+  img {
+    width: 36px;
+    cursor: pointer;
+
+    @media only screen and (max-width: 1024px) {
+      width: 24px;
     }
+  }
 }

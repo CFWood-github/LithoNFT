@@ -1,13 +1,13 @@
 .footer {
   position: fixed;
-  bottom: 30px;
+  bottom: 33px;
 
   .world {
     width: 40px;
-    margin-left: 150px;
+    margin-left: 8vw;
 
-    @media only screen and (max-width: 600px) {
-      margin-left: 100px;
+    @media only screen and (max-width: 1024px) {
+      margin-left: 7.8vw;
     }
   }
 }
