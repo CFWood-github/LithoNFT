@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { connectWallet, getCurrentWalletConnected } from "./interact"
+import Web3 from 'web3';
+
+const web3 = new Web3(window.ethereum);
+
 
 export default function WalletConnect({ account, setAccount}) {
 

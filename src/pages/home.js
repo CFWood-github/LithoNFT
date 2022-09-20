@@ -1,6 +1,7 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect} from 'react';
 import axios from 'axios';
 import moment from 'moment';
+import { useAccount } from "wagmi";
 import { getApproveContract } from '../utils/contractFunctions';
 import { developer_address } from '../contract/address';
 import WhiteList from "../assets/json/whitelist.json"
@@ -9,8 +10,9 @@ import Web3 from 'web3';
 
 const web3 = new Web3(window.ethereum);
 
-export default function Home({ account }) {
+export default function Home() {
 
+  const { address, isConnected } = useAccount();
   const [data, setData] = useState(WhiteList);
   const [isIncluded, setIsIncluded] = useState(false);
   const [currentTime, setCurrentTime] = useState();
@@ -26,7 +28,7 @@ export default function Home({ account }) {
 
   const getInfo = () => {
     data.map((item) => {
-      if (item.walletaddress === account) {
+      if (item.walletaddress.toUpperCase() === address?.toUpperCase()) {
         setIsIncluded(true)
         setMembers(data.length)
       }
@@ -34,10 +36,10 @@ export default function Home({ account }) {
   }
 
   const isDeveloper = () => {
-    if (!account) return;
+    if (!isConnected) return;
     let i = 0;
     developer_address.map((element) => {
-      if (element.toUpperCase() === account.toUpperCase()) i++;
+      if (element.toUpperCase() === address.toUpperCase()) i++;
     })
     if (i == 0) return false;
     if (i > 0) return true;
@@ -45,10 +47,11 @@ export default function Home({ account }) {
 
   useEffect(() => {
     getInfo();
-  }, [account])
+    console.log(address);
+  }, [address])
 
   const approveJoin = async () => {
-    if (!account) {
+    if (!isConnected) {
       alert('Please connect wallet')
       return
     }
@@ -62,20 +65,21 @@ export default function Home({ account }) {
     // }
 
     const contract = await getApproveContract();
-    await contract.methods.approve(account).send({ from: account });
+    await contract.methods.approve(address).send({ from: address });
   }
 
   const addPost = () => {
-    if (!account) return
+    if (!isConnected) return
     // if (currentTime < startTime || currentTime > endTime) return
 
     let newPost = {
-      "walletaddress": account
+      "walletaddress": address
     }
     let posts = [...data, newPost];
     setData(posts);
     saveJson(posts);
-    new web3.eth.personal.sign("Join the Official Finesse Genesis Warriors Whitelist", account)
+    new web3.eth.personal.sign("Join the Official Finesse Genesis Warriors Whitelist", address)
+    window.location.reload(false);
   }
 
   const saveJson = (posts) => {

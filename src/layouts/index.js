@@ -4,10 +4,10 @@ import Right from "./right";
 import Footer from "./footer"
 
 
-export default function Layout({children, account, setAccount}) {
+export default function Layout({children}) {
   return (
     <>
-      <Header account={account} setAccount={setAccount} />
+      <Header/>
       <div className="page-content">
         {children}
       </div>

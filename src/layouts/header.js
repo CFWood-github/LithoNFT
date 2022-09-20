@@ -1,10 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import WalletConnect from '../utils/WalletConnect';
 import jotart from "../assets/img/jotart.png";
+import {ConnectWallet} from "../components/connect-button"
 
-
-export default function Header({account, setAccount}) {
+export default function Header() {
     return (
         <div className="header">
             <div className="left">
@@ -13,7 +12,7 @@ export default function Header({account, setAccount}) {
 
             <div className="right">
               <a className='menu' href='https://jotart.com/finesse-shadow-warriors/' >Menu</a>
-              <WalletConnect account={account} setAccount={setAccount} />
+              <ConnectWallet />
             </div>
         </div>
     )
